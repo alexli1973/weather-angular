@@ -1,0 +1,12 @@
+<div class="block-wrapper-border">
+  <app-divider [label]="'History'"></app-divider>
+  <div class="locations-list-wrapper">
+    <div *ngFor="let location of locationsList; index as i">
+      <div class="d-flex">
+        <div>{{location?.display_name }}</div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+</div>
+

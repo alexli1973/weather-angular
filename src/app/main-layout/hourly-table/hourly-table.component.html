@@ -1,0 +1,26 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th></th>
+    <th *ngFor="let h of data | slice:0:24;  index as i">
+      <span>{{h.time | date : 'shortTime'}}</span>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <div>
+      <div><span>Temperature</span></div>
+      <div><span>Humidity</span></div>
+      <div><span>Precipitation</span></div>
+      <div><span>Rain</span></div>
+    </div>
+    <td *ngFor="let hourly of data | slice:0:24;  index as i">
+      <div>{{hourly?.temperature_2m}}</div>
+      <div>{{hourly?.relative_humidity_2m}}</div>
+      <div>{{hourly?.precipitation_probability}}</div>
+      <div> {{hourly?.rain}}</div>
+    </td>
+  </tr>
+  </tbody>
+</table>

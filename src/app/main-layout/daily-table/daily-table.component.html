@@ -1,0 +1,19 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th *ngFor="let head of tableHeader;  index as i">
+        <div class="sorting-head">
+          <span>{{head.headerName | uppercase}}</span>
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let el of data;  index as i">
+    <td>{{el?.time | date}}</td>
+    <td>{{el?.temperature_2m_min}}</td>
+    <td>{{el?.temperature_2m_max}}</td>
+    <td>{{el?.rain_sum}}</td>
+  </tr>
+  </tbody>
+</table>

@@ -1,0 +1,10 @@
+<div class="meteo-wrapper">
+  <div class="block-wrapper-border">
+    <app-divider [label]="'Current Location'"></app-divider>
+    <span class="location-text">{{currentAddress?.display_name}}</span>
+  </div>
+  <div class="block-wrapper-border">
+    <app-weather-grid [weatherData]="meteoData?.daily"/>
+  </div>
+</div>
+

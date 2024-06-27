@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+/* Importing Bootstrap SCSS file. */
+//@import "bootstrap/scss/bootstrap";
+@import 'node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.label-text {
+  font-weight: 700;
+  font-size: 18px;
+  color: #0969da;
+}
+.block-wrapper-border {
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+}

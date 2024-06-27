@@ -1,0 +1,7 @@
+.main-layout-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 50px;
+  min-height: max-content;
+  padding: 0 20px;
+}

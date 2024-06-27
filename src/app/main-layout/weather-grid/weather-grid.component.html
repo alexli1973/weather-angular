@@ -1,0 +1,36 @@
+<app-divider [label]="'3 day forecast'"></app-divider>
+<app-search
+  [searchControl]="searchControl"
+  [placeholderText]="'Search by Date'"
+  (onChange)="handlerInputChange($event)">
+</app-search>
+
+<table class="table table-striped" *ngIf="weatherData">
+  <thead>
+  <tr>
+    <th *ngFor="let head of tableHeader;  index as i"
+        scope="col"
+        colSort
+        (sortEvent)="sortEventHandler($event)"
+        [sortingQueryString]="head.field"
+        [sortDirection]="sortDirection"
+    >
+      <div class="sorting-wrapper">
+        <div class="sorting-head">{{head.headerName | uppercase}}</div>
+        <div class="sorting-icon" *ngIf="sortingQueryString === head.field">
+          <fa-icon [icon]="faArrowDown" *ngIf="sortDirection === 'asc'"></fa-icon>
+          <fa-icon [icon]="faArrowUp" *ngIf="sortDirection === 'desc'"></fa-icon>
+        </div>
+      </div>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let el of weatherData | searchText: {'isTime':'time'}: searchText; index as i" (click)="openDialog(el)">
+    <td>{{el?.time | date}}</td>
+    <td>{{el?.temperature_2m_min}}</td>
+    <td>{{el?.temperature_2m_max}}</td>
+    <td>{{el?.rain_sum}}</td>
+  </tr>
+  </tbody>
+</table>
