@@ -2,12 +2,15 @@ import {Component, OnInit, SimpleChanges} from '@angular/core';
 import {LocalStorageService} from "../../services/local-storage/local-storage.service";
 import {IAddress} from "../../typing/types";
 import {SharedService} from "../../services/shared-data/shared.service";
+import {AutoUnsubscribe} from "../../decorators/unsubscription.decorator";
 
 @Component({
   selector: 'app-locations-history',
   templateUrl: './locations-history.component.html',
   styleUrls: ['./locations-history.component.scss']
 })
+
+@AutoUnsubscribe
 export class LocationsHistoryComponent implements OnInit {
 
   locationsList: IAddress[] = [];

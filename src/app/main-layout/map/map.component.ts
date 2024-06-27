@@ -5,6 +5,7 @@ import {IAddress} from "../../typing/types";
 import {marker, Marker} from "leaflet";
 import {SharedService} from "../../services/shared-data/shared.service";
 import {LocalStorageService} from "../../services/local-storage/local-storage.service";
+import {AutoUnsubscribe} from "../../decorators/unsubscription.decorator";
 
 //Map marker errors fix
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
@@ -27,7 +28,9 @@ L.Marker.prototype.options.icon = iconDefault;
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
-export class MapComponent implements  OnInit,AfterViewInit  {
+
+@AutoUnsubscribe
+export class MapComponent implements  OnInit, AfterViewInit  {
   @Output() mapClick: EventEmitter<any> = new EventEmitter();
   currentAddress: IAddress = {display_name: '', lat: '', lon: ''};
   currentMarker: undefined | Marker<any>;

@@ -11,12 +11,15 @@ import {
 } from "../../typing/types";
 import {MeteoService} from "../../services/meteo/meteo.service";
 import {LocalStorageService} from "../../services/local-storage/local-storage.service";
+import {AutoUnsubscribe} from "../../decorators/unsubscription.decorator";
 
 @Component({
   selector: 'app-meteo',
   templateUrl: './meteo.component.html',
   styleUrls: ['./meteo.component.scss']
 })
+
+@AutoUnsubscribe
 export class MeteoComponent implements OnInit {
 
   currentAddress: IAddress | null = null;
